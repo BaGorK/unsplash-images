@@ -5,9 +5,9 @@ import ThemeToggle from './ThemeToggle';
 const App = () => {
   return (
     <main>
+      <ThemeToggle />
       <Gallery />
       <SearchForm />
-      <ThemeToggle />
     </main>
   );
 };
