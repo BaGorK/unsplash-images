@@ -8,7 +8,9 @@ const getInitialDarkMode = () => {
     '(prefers-color-sheme:dark)'
   ).matches;
 
-  return prefersDarkMode;
+  const storedDarkmode = localStorage.getItem('dark') === 'true';
+
+  return storedDarkmode || prefersDarkMode;
 };
 
 export const AppProvider = ({ children }) => {
@@ -17,6 +19,7 @@ export const AppProvider = ({ children }) => {
   const toggleDarkTheme = () => {
     const newDarkTheme = !isDarkTheme;
     setIsDarkTheme(newDarkTheme);
+    localStorage.setItem('dark', newDarkTheme);
   };
 
   useEffect(() => {
